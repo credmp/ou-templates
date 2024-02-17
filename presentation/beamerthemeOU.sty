@@ -1,0 +1,189 @@
+% LaTeX Beamer theme approximating the style of the Powerpoint templates
+% for Open University of the Netherlands
+% (c) 2015 Jeroen Keiren, Jeroen.Keiren@ou.nl
+% (c) 2021 Greg Alpar, Greg.Alpar@ou.nl
+%
+% Last change: 02/06/2021
+
+\usepackage{tikz} % Required for positioning the image
+\usepackage[absolute]{textpos}
+
+\usepackage{etoolbox}
+
+\usepackage{xcolor}
+
+\definecolor{ouwhite}{HTML}{f6f6f6}
+
+\setbeamertemplate{bibliography item}{}
+\patchcmd{\thebibliography}{\setlength{\itemsep}{\bibsep}}{\setlength{\itemsep}{0.5em}}{}{} % Adjust the spacing between items
+
+\RequirePackage{fontspec}
+
+% Set Calibri as the font
+\setmainfont{Carlito}
+% Customize Beamer fonts
+\setbeamerfont{title}{family=\fontspec{Carlito}, series=\bfseries}
+\setbeamerfont{frametitle}{family=\fontspec{Carlito}, series=\bfseries}
+\setbeamerfont{normal text}{family=\fontspec{Carlito}}
+
+\setbeamerfont{frametitle}{family=\fontfamily{phv}\selectfont}
+
+\newfontfamily\Moret{Moret}
+\newfontfamily\Gothic{Poppins-Medium}
+
+\setbeamerfont{sectiontitle}{size=\Huge, series=\bfseries, family=\Moret}
+% \setbeamerfont{frametitle}{size=\Large, shape=\scshape}
+\setbeamerfont{frametitle}{family=\Moret, size=\huge, shape=\bfseries}
+
+% Define colours, taken from OU Template in Powerpoint
+\definecolor{OUred}{rgb}{0.855,0.031,0.071}
+
+% Use the colors. With the following three, we already get most of what we need
+
+\setbeamercolor{background canvas}{bg=red}
+\setbeamercolor{palette primary}{bg=red}
+\setbeamercolor{structure}{fg=OUred}
+\setbeamercolor{titlelike}{parent=structure,fg=white}
+\setbeamercolor{frametitle}{parent=structure, fg=OUred}
+
+% Background canvas for the title frame
+\defbeamertemplate{background canvas}{title frame}
+{
+  \includegraphics[width=1.01\paperwidth,height=1.01\paperheight,keepaspectratio]{images/title-new.png}
+}
+
+% Background canvas for the title frame
+\defbeamertemplate{background canvas}{title frame 169}
+{
+  \includegraphics[width=1.01\paperwidth,height=1.01\paperheight,keepaspectratio]{images/title_169-new.png}
+}
+
+% White background for normal slides
+\defbeamertemplate{background canvas}{ou white}
+{
+  \includegraphics[width=1.01\paperwidth,height=1.01\paperheight,keepaspectratio]{images/bg-white.png}
+}
+
+% White background for normal slides without the curve
+\defbeamertemplate{background canvas}{ou plain}
+{
+  \color{ouwhite}\vrule width\paperwidth height\paperheight% added bg color
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=east, inner sep=0pt, outer sep=0pt] at (current page.east) {\includegraphics[width=1.01\paperwidth,height=1.01\paperheight,keepaspectratio]{media/image3}};
+  \end{tikzpicture}
+}
+
+\defbeamertemplate{background canvas}{ou chess}
+{
+  \color{ouwhite}\vrule width\paperwidth height\paperheight% added bg color
+
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=east, inner sep=0pt, outer sep=0pt] at (current page.east) {\includegraphics[width=1.01\paperwidth,height=1.01\paperheight,keepaspectratio]{media/image14}};
+  \end{tikzpicture}
+}
+% \defbeamertemplate{background canvas}{ou chess} {
+%   \includegraphics[width=\paperwidth, height=\paperheight, trim=0pt 0pt 0.8\paperwidth 0pt, clip]{media/image14}
+% }
+
+\newenvironment{blockquote}{%
+  \par%
+  \medskip
+  \leftskip=14em\rightskip=2em%
+  \noindent\ignorespaces}{%
+  \par\medskip}
+
+% Title page
+\setbeamertemplate{title page}{
+	\setlength\parindent{14em}
+    {
+    %\centering
+      \vspace{130pt}
+      \begin{blockquote}
+    \usebeamerfont{title}\usebeamercolor[fg]{title}\textbf{\inserttitle}\par
+    \end{blockquote}
+    \medskip
+    \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+    \bigskip
+    \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par
+    \smallskip
+    \usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par
+    \smallskip
+    \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par
+    }
+    \vfill
+    \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
+}
+
+% Background
+\setbeamertemplate{background canvas}[ou white]
+
+% Do not use navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Template to put page numbers on the left
+\defbeamertemplate{footline}{left frame number}
+{
+  \usebeamerfont{page number in head/foot}
+  \usebeamercolor[fg]{page number in head/foot}
+  \hspace*{4pt}
+  \insertframenumber\,/\,\inserttotalframenumber
+  \hfill
+  {
+  \begin{textblock*}{3.5cm}[1.2,1.4](\paperwidth,\paperheight)
+  \includegraphics[width=3.5cm]{images/OU_Logo_FC-new.png}
+  \end{textblock*}
+  }
+  \vspace{4pt}
+}
+
+% Template to put page numbers on the left
+\defbeamertemplate{footline}{left frame number small logo}
+{
+  \usebeamerfont{page number in head/foot}
+  \usebeamercolor[fg]{page number in head/foot}
+  \hspace*{4pt}
+  \insertframenumber\,/\,\inserttotalframenumber
+  \hfill
+  {
+  \begin{textblock*}{2.5cm}[1.2,1.4](\paperwidth,\paperheight)
+  \includegraphics[width=2.5cm]{images/OU_Logo_FC-new.png}
+  \end{textblock*}
+  }
+  \vspace{4pt}
+}
+
+% Template to put page numbers on the left
+\defbeamertemplate{footline}{left frame number notext}
+{
+  \usebeamerfont{page number in head/foot}
+  \usebeamercolor[fg]{page number in head/foot}
+  \hspace*{4pt}
+  \insertframenumber\,/\,\inserttotalframenumber
+  \hfill
+  {
+  \begin{textblock*}{1.2cm}[1.2,1.4](\paperwidth,\paperheight)
+  \includegraphics[width=.7cm]{images/OU_Logo_FC_notext.pdf}
+  \end{textblock*}
+  }
+  \vspace{4pt}
+}
+
+% Put page numbers on the left
+\setbeamertemplate{footline}[left frame number]
+
+\setbeamercolor{alerted text}{fg=OUred}
+
+
+\defbeamertemplate*{background canvas}{focus}{%
+  \begin{tikzpicture}
+    % \clip (0,0) rectangle ++(0.5\paperwidth,\paperheight);
+    % \fill[normal text.bg] (0,0) rectangle ++(\paperwidth,\paperheight);
+    \draw [fill=novi_rood] (0,0) rectangle ++(\paperwidth,\paperheight);
+  \end{tikzpicture}%
+
+  % \begin{tikzpicture}[overlay]
+  %   \blobc{3}{-16,2}{novi_geel}
+  %   \blobc{3}{-16,9}{novi_groen}
+  % \end{tikzpicture}
+}
+

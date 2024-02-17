@@ -1,0 +1,103 @@
+\documentclass[aspectratio=169]{beamer}
+% \documentclass[12pt,t]{beamer}
+% \usepackage[T1]{fontenc}
+% \usepackage[charter,cal=cmcal]{mathdesign}
+% \usefonttheme{professionalfonts}
+\usetheme{OU}
+
+\usepackage{tcolorbox}
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{fontawesome5}
+% \usepackage[dutch]{babel} % Dutch text; e.g. accents, hyphenation
+
+\usepackage{listings} % to write program code
+\usepackage{hyperref} % URLs; e.g. \url{...}
+\usepackage{mathtools} % to write above arrow
+\usepackage{listings}
+
+\usepackage[style=numeric,backend=bibtex]{biblatex}
+\bibliography{presentation}
+\AtBeginBibliography{\tiny}
+
+\title{your title}
+% \subtitle{BiDE: a language for the generation of Bidirectional Diagrammatic Editors}
+\author{your name}
+\date{\today}
+\hypersetup{
+  pdftitle={\title},
+  pdfauthor={\author},
+  pdfpagemode={PageWdth}
+}
+
+
+\begin{document}
+\setbeamerfont{footnote}{size=\Tiny}
+\setbeamerfont{caption}{size=\Tiny}
+\setbeamertemplate{background canvas}[title frame 169]
+
+\begin{frame}[noframenumbering,plain]
+  \titlepage
+\end{frame}
+
+\setbeamertemplate{background canvas}[ou plain]
+\setbeamertemplate{footline}[left frame number small logo]
+
+\setbeamertemplate{background canvas}[ou chess]
+\begin{frame}[noframenumbering,plain]{Table of Contents}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+\setbeamertemplate{background canvas}[ou plain]
+\section{Introduction}
+
+\begin{frame}
+  \frametitle{Introduction}
+
+  some text\footnotemark[1]
+  
+  \footnotetext[1]{Add your reference here}
+\end{frame}
+
+\section{Research Background}
+\setbeamertemplate{background canvas}[ou chess]
+\frame[noframenumbering,plain]{\tableofcontents[currentsection,hideallsubsections]}
+\setbeamertemplate{background canvas}[ou plain]
+
+
+\section{Research Method}
+\setbeamertemplate{background canvas}[ou chess]
+\frame[noframenumbering,plain]{\tableofcontents[currentsection,hideallsubsections]}
+\setbeamertemplate{background canvas}[ou plain]
+
+
+\section{Research Results}
+\setbeamertemplate{background canvas}[ou chess]
+\frame[noframenumbering,plain]{\tableofcontents[currentsection,hideallsubsections]}
+\setbeamertemplate{background canvas}[ou plain]
+
+
+\section{Conclusions}
+\setbeamertemplate{background canvas}[ou chess]
+\frame[noframenumbering,plain]{\tableofcontents[currentsection,hideallsubsections]}
+\setbeamertemplate{background canvas}[ou plain]
+
+
+
+\begin{frame}
+  \frametitle{Summary}
+
+  {\large \textbf{My main point}}
+  \begin{tcolorbox}
+    A closing slide with the points you wanted to make, never close with ``questions?''.
+  \end{tcolorbox}
+
+  {\large \textbf{Some details}}
+  \begin{itemize}
+  \item Details here
+  \end{itemize}
+\end{frame}
+
+
+
+\end{document}
